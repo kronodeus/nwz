@@ -10,7 +10,7 @@ export function promptForStorySelection(stories: any[], cb: (story: any) => Prom
             cb(stories[index]).then(() => promptForStorySelection(stories, cb))
             return
         } else if (userInput === 'exit') {
-            console.log(chalk.dim(`    Have a nice day!`))
+            console.log(chalk.dim(`    Have a nice day!\n`))
             return
         } else {
             console.log(chalk.red(`    Invalid input: ${userInput}`))
