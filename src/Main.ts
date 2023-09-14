@@ -20,5 +20,7 @@ export function main() {
             await open(story.url)
             await sleep(4000)
         })
+
+        console.log()
     })
 }
