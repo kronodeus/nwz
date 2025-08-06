@@ -1,23 +1,40 @@
 {
   "compilerOptions": {
     "lib": ["ESNext"],
-    "module": "esnext",
-    "target": "esnext",
-    "moduleResolution": "bundler",
+    "types": ["node"],
+    "rootDir": "src",
+    "outDir": "dist",
+    "module": "NodeNext",
+    "target": "ESNext",
+    "moduleResolution": "NodeNext",
     "moduleDetection": "force",
-    "allowImportingTsExtensions": true,
-    "noEmit": true,
-    "composite": true,
+    "declaration": false,
     "strict": true,
-    "downlevelIteration": true,
     "skipLibCheck": true,
-    "jsx": "preserve",
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
-    "allowJs": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "allowJs": false,
     "noImplicitAny": false,
-    "types": [
-      "bun-types" // add Bun global
-    ]
-  }
+    "alwaysStrict": true,
+    "checkJs": false,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "exactOptionalPropertyTypes": true,
+    "experimentalDecorators": true,
+    "noEmitOnError": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "removeComments": false,
+    "useUnknownInCatchVariables": true,
+    "strictBuiltinIteratorReturn": true
+  },
+  "include": ["src"]
 }
