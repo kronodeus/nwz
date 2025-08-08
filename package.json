@@ -5,6 +5,10 @@
   "module": "bin/nwz.js",
   "type": "module",
   "license": "MIT",
+  "packageManager": "pnpm@10.14.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "cli",
     "terminal",
@@ -30,10 +34,16 @@
     "node": ">=18"
   },
   "scripts": {
+    "lint": "echo \"Linting...\"",
+    "test": "echo \"Testing...\"",
     "build": "tsc",
     "watch": "tsc -w",
     "start": "node bin/nwz.js",
-    "nuke": "git clean -dxf && pnpm install && pnpm run build"
+    "nuke": "git clean -dxf && pnpm install && pnpm run build",
+    "ci": "pnpm install --frozen-lockfile && pnpm run lint && pnpm run build && pnpm run test",
+    "release:patch": "pnpm run ci && pnpm version patch && git push origin main --follow-tags",
+    "release:minor": "pnpm run ci && pnpm version minor && git push origin main --follow-tags",
+    "release:major": "pnpm run ci && pnpm version major && git push origin main --follow-tags"
   },
   "dependencies": {
     "chalk": "^5.3.0",
