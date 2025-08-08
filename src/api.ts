@@ -28,7 +28,7 @@ function validateStory(story: unknown): Story {
         throw new Error(`Invalid story from news source. Expected object, but received: ${display(story)}`)
     }
 
-    const url = story['url']
+    const url = story['url'] ?? buildFallbackUrl(story['id'])
     if (typeof url !== 'string') {
         throw new Error(`Invalid story URL from news source. Expected string, but received: ${display(url)}`)
     }
@@ -48,4 +48,16 @@ function validateStory(story: unknown): Story {
 
 function display(value: unknown) {
     return `${value} (${typeof value})`
+}
+
+/**
+ * Some stories, like the "Ask HN" ones, are just discussions and therefore do not have any
+ * external URL. In these cases, we can just build a link to the story on HN using the ID.
+ */
+function buildFallbackUrl(storyId: unknown) {
+    if (typeof storyId !== 'number') {
+        throw new Error(`Failed to build URL. Invalid story ID from news source. Expected number, but received: ${display(storyId)}`)
+    }
+
+    return `https://news.ycombinator.com/item?id=${storyId}`
 }

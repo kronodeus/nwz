@@ -34,7 +34,8 @@
     "noUnusedParameters": true,
     "removeComments": false,
     "useUnknownInCatchVariables": true,
-    "strictBuiltinIteratorReturn": true
+    "strictBuiltinIteratorReturn": true,
+    "sourceMap": true
   },
   "include": ["src"]
 }

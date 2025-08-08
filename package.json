@@ -27,7 +27,7 @@
     "nwz": "./bin/nwz.js"
   },
   "files": [
-    "bin",
+    "bin/nwz.js",
     "dist",
     "README.md",
     "LICENSE"
@@ -40,7 +40,8 @@
     "test": "echo \"Testing...\"",
     "build": "tsc",
     "watch": "tsc -w",
-    "start": "node bin/nwz.js",
+    "start": "bin/nwz.js",
+    "debug": "bin/nwz.debug.js",
     "nuke": "git clean -dxf && pnpm install && pnpm run build",
     "ci": "pnpm install --frozen-lockfile && pnpm run lint && pnpm run build && pnpm run test",
     "release:patch": "pnpm run ci && pnpm version patch && git push origin main --follow-tags",
