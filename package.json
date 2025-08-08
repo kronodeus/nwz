@@ -5,7 +5,6 @@
   "module": "bin/nwz.js",
   "type": "module",
   "license": "MIT",
-  "packageManager": "pnpm@10.14.0",
   "publishConfig": {
     "access": "public"
   },
