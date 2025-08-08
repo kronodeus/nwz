@@ -41,7 +41,6 @@
     "build": "tsc",
     "watch": "tsc -w",
     "start": "bin/nwz.js",
-    "debug": "bin/nwz.debug.js",
     "nuke": "git clean -dxf && pnpm install && pnpm run build",
     "ci": "pnpm install --frozen-lockfile && pnpm run lint && pnpm run build && pnpm run test",
     "release:patch": "pnpm run ci && pnpm version patch && git push origin main --follow-tags",
