@@ -5,6 +5,9 @@
   "module": "bin/nwz.js",
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "url": "https://github.com/kronodeus/nwz"
+  },
   "publishConfig": {
     "access": "public"
   },
