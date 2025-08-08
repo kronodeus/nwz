@@ -5,19 +5,26 @@ import {sleep} from "./util.js";
 import open from "open";
 import chalk from "chalk";
 
-export async function main() {
+export async function main(args: string[]) {
+    const url = args.includes('--url') || args.includes('-u')
+    const prompt = !(args.includes('--no-prompt') || args.includes('-n'))
     const stories = await fetchTopTenStories()
-    printTopTenStories(stories)
-    await promptForStorySelection(stories, async (story) => {
-        await printCountdown(3, (seconds) => {
-            if (seconds > 0) {
-                return chalk.dim(`    Opening in ${seconds}: ${story.url}`)
-            } else {
-                return chalk.dim(`    Opened: ${story.url}`)
-            }
-        })
+    printTopTenStories(stories, { url })
 
-        await open(story.url)
-        await sleep(4000)
-    })
+    if (prompt) {
+        await promptForStorySelection(stories, async (story) => {
+            await printCountdown(3, (seconds) => {
+                if (seconds > 0) {
+                    return chalk.dim(`    Opening in ${seconds}: ${story.url}`)
+                } else {
+                    return chalk.dim(`    Opened: ${story.url}`)
+                }
+            })
+
+            await open(story.url)
+            await sleep(4000)
+        })
+    }
+
+    console.log(chalk.dim(`\n    Have a nice day!\n`))
 }

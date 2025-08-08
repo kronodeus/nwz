@@ -6,10 +6,8 @@ export async function promptForStorySelection(stories: any[], cb: (story: any) =
         const index = parseInt(userInput)
 
         if (index in stories) {
-            cb(stories[index]).then(() => promptForStorySelection(stories, cb))
-            return
+            await cb(stories[index])
         } else if (userInput === 'exit') {
-            console.log(chalk.dim(`    Have a nice day!\n`))
             return
         } else {
             console.log(chalk.red(`    Invalid input: ${userInput}`))
