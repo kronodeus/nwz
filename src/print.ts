@@ -1,3 +1,4 @@
+import readline from 'node:readline'
 import chalk from 'chalk'
 import type { Story } from './api.js'
 import { sleep } from './util.js'
@@ -21,9 +22,8 @@ export async function printCountdown(seconds: number, getMessage: (remaining: nu
     while (seconds > 0) {
         process.stdout.write(getMessage(seconds--))
         await sleep(1000)
-        process.stdout.clearLine(0)
-        process.stdout.clearLine(1)
-        process.stdout.cursorTo(0)
+        readline.clearLine(process.stdout, 0)
+        readline.cursorTo(process.stdout, 0)
     }
 
     console.log(getMessage(seconds--))

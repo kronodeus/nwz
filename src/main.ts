@@ -1,9 +1,9 @@
+import chalk from 'chalk'
+import open from 'open'
 import { fetchTopTenStories } from './api.js'
 import { printCountdown, printTopTenStories } from './print.js'
 import { promptForStorySelection } from './prompt.js'
 import { sleep } from './util.js'
-import open from 'open'
-import chalk from 'chalk'
 
 export async function main(args: string[]) {
     const url = args.includes('--url') || args.includes('-u')
@@ -22,7 +22,7 @@ export async function main(args: string[]) {
             })
 
             await open(story.url)
-            await sleep(4000)
+            await sleep(3000)
         })
     }
 
