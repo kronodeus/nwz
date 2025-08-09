@@ -2,7 +2,7 @@ import chalk from "chalk";
 
 export async function promptForStorySelection(stories: any[], cb: (story: any) => Promise<void>) {
     while (true) {
-        const userInput = (await prompt( `\n    If you'd like to read more, make a selection ${chalk.green('(0-9)')}: `))?.trim() || 'exit'
+        const userInput = (await prompt( `   If you'd like to read more, make a selection ${chalk.green('(0-9)')}: `))?.trim() || 'exit'
         const index = parseInt(userInput)
 
         if (index in stories) {
@@ -10,7 +10,7 @@ export async function promptForStorySelection(stories: any[], cb: (story: any) =
         } else if (userInput === 'exit') {
             return
         } else {
-            console.log(chalk.red(`    Invalid input: ${userInput}`))
+            console.log(chalk.red(`   Invalid input: ${userInput}\n`))
         }
     }
 }

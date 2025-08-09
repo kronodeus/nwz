@@ -15,9 +15,9 @@ export async function main(args: string[]) {
         await promptForStorySelection(stories, async (story) => {
             await printCountdown(3, (seconds) => {
                 if (seconds > 0) {
-                    return chalk.dim(`    Opening in ${seconds}: ${story.url}`)
+                    return chalk.dim(`   Opening in ${seconds}: ${story.url}`)
                 } else {
-                    return chalk.dim(`    Opened: ${story.url}`)
+                    return chalk.dim(`   Opened: ${story.url}\n`)
                 }
             })
 
@@ -26,5 +26,5 @@ export async function main(args: string[]) {
         })
     }
 
-    console.log(chalk.dim(`\n    Have a nice day!\n`))
+    console.log(chalk.dim(`   Have a nice day!\n`))
 }
