@@ -43,7 +43,7 @@
         "watch": "tsc -w",
         "start": "bin/nwz.js",
         "nuke": "git clean -dxf && pnpm install && pnpm run build",
-        "ci": "pnpm install --frozen-lockfile && pnpm run lint && pnpm run build && pnpm run test",
+        "ci": "git clean -dxf && pnpm install --frozen-lockfile && pnpm run lint && pnpm run build && pnpm run test",
         "release:patch": "pnpm run ci && pnpm version patch && git push origin main --follow-tags",
         "release:minor": "pnpm run ci && pnpm version minor && git push origin main --follow-tags",
         "release:major": "pnpm run ci && pnpm version major && git push origin main --follow-tags"
