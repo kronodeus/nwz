@@ -7,10 +7,9 @@ type PrintOptions = {
 }
 
 export function printTopTenStories(topTenStories: Story[], {url = false}: PrintOptions = {}) {
-    console.log(chalk.yellow(`    ${chalk.underline('HACKER NEWS')} ${chalk.dim('|')} Top 10 ${chalk.dim('|')} ${new Date().toLocaleDateString()}\n`))
-    topTenStories.forEach((story, index) => {
-        console.log(`    ${chalk.green(`${index}`)}${chalk.dim('.')} ${chalk.bold(story.title)}  ${chalk.dim(chalk.italic(`▲ ${story.score}`))}${url ? `\n       ${chalk.dim(`➤ ${chalk.italic(story.url)}`)}` : ''}`)
-    })
+    console.log(`\n   ${chalk.yellow(`${chalk.underline('HACKER NEWS')} ${chalk.dim('|')} Top 10 ${chalk.dim('|')} ${new Date().toLocaleDateString()}`)}\n\n${topTenStories.map((story, index) =>
+        `    ${chalk.green(`${index}`)}${chalk.dim('.')} ${chalk.bold(story.title)}  ${chalk.dim(chalk.italic(`▲ ${story.score}`))}${url ? `\n       ${chalk.dim(`➤ ${chalk.italic(story.url)}`)}` : ''}`
+    ).join('\n')}\n`)
 }
 
 export async function printCountdown(seconds: number, getMessage: (remaining: number) => string) {
