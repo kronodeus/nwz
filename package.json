@@ -1,58 +1,60 @@
 {
-  "name": "@kronodeus/nwz",
-  "version": "0.2.1",
-  "description": "Browse the top stories from Hacker News right in your terminal.",
-  "module": "bin/nwz.js",
-  "type": "module",
-  "license": "MIT",
-  "repository": {
-    "url": "https://github.com/kronodeus/nwz"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "keywords": [
-    "cli",
-    "terminal",
-    "hackernews",
-    "hacker-news",
-    "hn",
-    "news",
-    "feed",
-    "top",
-    "stories",
-    "briefing"
-  ],
-  "bin": {
-    "nwz": "./bin/nwz.js"
-  },
-  "files": [
-    "bin/nwz.js",
-    "dist",
-    "README.md",
-    "LICENSE"
-  ],
-  "engines": {
-    "node": ">=18"
-  },
-  "scripts": {
-    "lint": "echo \"Linting...\"",
-    "test": "echo \"Testing...\"",
-    "build": "tsc",
-    "watch": "tsc -w",
-    "start": "bin/nwz.js",
-    "nuke": "git clean -dxf && pnpm install && pnpm run build",
-    "ci": "pnpm install --frozen-lockfile && pnpm run lint && pnpm run build && pnpm run test",
-    "release:patch": "pnpm run ci && pnpm version patch && git push origin main --follow-tags",
-    "release:minor": "pnpm run ci && pnpm version minor && git push origin main --follow-tags",
-    "release:major": "pnpm run ci && pnpm version major && git push origin main --follow-tags"
-  },
-  "dependencies": {
-    "chalk": "^5.3.0",
-    "open": "^9.1.0"
-  },
-  "devDependencies": {
-    "@types/node": "~18",
-    "typescript": "5.9.2"
-  }
+    "name": "@kronodeus/nwz",
+    "version": "0.2.1",
+    "description": "Browse the top stories from Hacker News right in your terminal.",
+    "module": "bin/nwz.js",
+    "type": "module",
+    "license": "MIT",
+    "repository": {
+        "url": "https://github.com/kronodeus/nwz"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "keywords": [
+        "cli",
+        "terminal",
+        "hackernews",
+        "hacker-news",
+        "hn",
+        "news",
+        "feed",
+        "top",
+        "stories",
+        "briefing"
+    ],
+    "bin": {
+        "nwz": "./bin/nwz.js"
+    },
+    "files": [
+        "bin/nwz.js",
+        "dist",
+        "README.md",
+        "LICENSE"
+    ],
+    "engines": {
+        "node": ">=18"
+    },
+    "scripts": {
+        "format": "biome format --write",
+        "lint": "biome lint",
+        "test": "echo \"Testing...\"",
+        "build": "tsc",
+        "watch": "tsc -w",
+        "start": "bin/nwz.js",
+        "nuke": "git clean -dxf && pnpm install && pnpm run build",
+        "ci": "pnpm install --frozen-lockfile && pnpm run lint && pnpm run build && pnpm run test",
+        "release:patch": "pnpm run ci && pnpm version patch && git push origin main --follow-tags",
+        "release:minor": "pnpm run ci && pnpm version minor && git push origin main --follow-tags",
+        "release:major": "pnpm run ci && pnpm version major && git push origin main --follow-tags"
+    },
+    "dependencies": {
+        "chalk": "^5.3.0",
+        "open": "^9.1.0"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^2.1.4",
+        "@types/node": "~18",
+        "typescript": "5.9.2"
+    }
 }

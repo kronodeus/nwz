@@ -1,0 +1,36 @@
+{
+    "linter": {
+        "includes": ["src/**", "bin/**"],
+        "rules": {
+            "complexity": {
+                "useLiteralKeys": "off"
+            }
+        }
+    },
+    "formatter": {
+        "enabled": true,
+        "formatWithErrors": false,
+        "attributePosition": "auto",
+        "indentStyle": "space",
+        "indentWidth": 4,
+        "lineWidth": 120,
+        "lineEnding": "lf",
+        "includes": ["**", "!dist", "!node_modules", "!pnpm-lock.yaml", "!.idea"]
+    },
+    "javascript": {
+        "formatter": {
+            "arrowParentheses": "always",
+            "bracketSameLine": false,
+            "bracketSpacing": true,
+            "quoteStyle": "single",
+            "quoteProperties": "asNeeded",
+            "semicolons": "asNeeded",
+            "trailingCommas": "es5"
+        }
+    },
+    "json": {
+        "formatter": {
+            "trailingCommas": "none"
+        }
+    }
+}

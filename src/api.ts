@@ -5,7 +5,9 @@ export type Story = {
 }
 
 export async function fetchTopTenStories(): Promise<Story[]> {
-    const storyIds = await fetch('https://hacker-news.firebaseio.com/v0/topstories.json').then((response) => response.json())
+    const storyIds = await fetch('https://hacker-news.firebaseio.com/v0/topstories.json').then((response) =>
+        response.json()
+    )
     if (!Array.isArray(storyIds)) {
         throw new Error(`Unexpected response from news source. Expected array, but received: ${display(storyIds)}`)
     }
@@ -16,7 +18,9 @@ export async function fetchTopTenStories(): Promise<Story[]> {
             throw new Error(`Invalid story ID from news source. Expected number, but received: ${display(storyId)}`)
         }
 
-        const story = await fetch(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json`).then(response => response.json())
+        const story = await fetch(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json`).then((response) =>
+            response.json()
+        )
         stories.push(validateStory(story))
     }
 
@@ -56,7 +60,9 @@ function display(value: unknown) {
  */
 function buildFallbackUrl(storyId: unknown) {
     if (typeof storyId !== 'number') {
-        throw new Error(`Failed to build URL. Invalid story ID from news source. Expected number, but received: ${display(storyId)}`)
+        throw new Error(
+            `Failed to build URL. Invalid story ID from news source. Expected number, but received: ${display(storyId)}`
+        )
     }
 
     return `https://news.ycombinator.com/item?id=${storyId}`
